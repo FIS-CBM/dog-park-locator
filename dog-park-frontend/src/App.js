@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import Nav from './components/Nav'
 import Landing from './components/Landing'
-import Parks from './containers/Parks'
+import ParksContainer from './containers/ParksContainer'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <div className="App container-fluid">
         <Nav />
         <Route exact path='/' component={Landing} />
-        <Route exact path='/parks' component={Parks} />
+        <Route exact path='/parks' component={ParksContainer} />
       </div>
     </Router>
   );

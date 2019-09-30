@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import Park from '../components/Park'
 
-export default class Parks extends Component {
+export default class ParksContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -73,7 +74,7 @@ export default class Parks extends Component {
             <button onClick={e => this.handleShowAdd(e)}>Add Park</button>
           </div>
         </div>
-      {this.state.showAdd ? 
+        <Park parks={this.state.parks} />
         <div className='col-med-8 add-park-form'>
           <form>
             <p>Name: <input id='name' onChange={e => this.handleFieldChange(e)} /></p>
@@ -87,32 +88,7 @@ export default class Parks extends Component {
             <p>Fenced: <input type='checkbox' id='fenced' onClick={e => this.handleFieldChange(e)} /></p>
             <button type='submit'>Submit</button>
           </form>
-
-        </div> :
-        <div className='row'>
-          <div className='col-md-8'>
-            <table>
-              <tbody>
-              <tr>
-                <th>Name</th>
-                <th>Hours</th>
-                <th>Address</th>
-                <th>Fenced</th>
-              </tr>
-                {this.state.parks.map(park => {
-                  return(
-                    <tr key={park.id}>
-                      <td>{park.name}</td>
-                      <td>{park.hours}</td>
-                      <td>{park.address}<br />{park.city}, {park.state}</td>
-                      <td>{park.fenced ? 'Yes' : 'No'}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>}
+        </div> 
       </div>
     )
   }
