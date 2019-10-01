@@ -4,4 +4,6 @@ class DogPark < ApplicationRecord
 
 	validates :name, :address, uniqueness: true
 
+	validates :zip_code, length: { is: 5 }
+
 end
