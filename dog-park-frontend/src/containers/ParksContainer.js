@@ -26,6 +26,7 @@ export default class ParksContainer extends Component {
 
   handleShowAdd = e => {
     e.preventDefault()
+    if (e.target.firstChild.textContent === 'Done') this.fetchParks()
     this.setState({
       ...this.state,
       showAdd : !this.state.showAdd
@@ -35,13 +36,18 @@ export default class ParksContainer extends Component {
   render(){
     return(
       <div className='parks-container'>
+        <br />
         <div className='row'>
           <div className='col-xs-4 col-sm-2'>
-            <button onClick={e => this.handleShowAdd(e)}>Add Park</button>
+            <button onClick={e => this.handleShowAdd(e)}>{ this.state.showAdd ? 'Done' : 'Add Park' }</button>
           </div>
         </div>
+        <br />
         <div className='row'>
-          {this.state.showAdd ? <NewParkForm /> : <Park parks={this.state.parks} />}
+          { this.state.showAdd ? <NewParkForm /> : null }
+        </div>
+        <div className='row'>
+          <Park parks={this.state.parks} />
         </div>
       </div>
     )
