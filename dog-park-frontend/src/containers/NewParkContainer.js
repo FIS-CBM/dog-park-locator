@@ -45,6 +45,17 @@ export default class NewParkContainer extends Component {
         }
       })
     })
+    this.setState({
+      name: '',
+      address: '',
+      city: '',
+      state: '',
+      zip_code: '',
+      hours: '',
+      fenced: 'false',
+      info: '',
+      website: ''
+    })
   }
 
   render(){

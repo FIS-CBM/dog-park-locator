@@ -26,6 +26,7 @@ export default class ParksContainer extends Component {
 
   handleShowAdd = e => {
     e.preventDefault()
+    if (e.target.firstChild.textContent === 'Done') this.fetchParks()
     this.setState({
       ...this.state,
       showAdd : !this.state.showAdd
@@ -45,7 +46,7 @@ export default class ParksContainer extends Component {
         <div className='row'>
           { this.state.showAdd ? <NewParkForm /> : null }
         </div>
-        <div classname='row'>
+        <div className='row'>
           <Park parks={this.state.parks} />
         </div>
       </div>
