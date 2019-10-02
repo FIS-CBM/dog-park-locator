@@ -47,7 +47,7 @@ export default class ParksContainer extends Component {
           { this.state.showAdd ? <NewParkForm /> : null }
         </div>
         <div className='row'>
-          {this.state.parks.length !== 0 ? <Park parks={this.state.parks} /> : 'loading...'}
+          {this.state.parks.length !== 0 ? <Park parks={this.state.parks} /> : "Loading..."}
         </div>
       </div>
     )
