@@ -30,21 +30,7 @@ export default class NewParkContainer extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.pushPark()
-  }
-
-  pushPark = () => {
-    fetch("http://localhost:3001/dog_parks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        dog_park: {
-          ...this.state
-        }
-      })
-    })
+    this.props.pushPark(this.state)
     this.setState({
       name: "",
       address: "",

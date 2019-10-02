@@ -33,6 +33,24 @@ export default class ParksContainer extends Component {
     })
   }
 
+  pushPark = park => {
+    fetch("http://localhost:3001/dog_parks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        dog_park: {
+          ...park
+        }
+      })
+    })
+    this.setState({
+      showAdd: false,
+      parks: [...this.state.parks, park]
+    })
+  }
+
   render(){
     return(
       <div className='parks-container'>
@@ -44,7 +62,7 @@ export default class ParksContainer extends Component {
         </div>
         <br />
         <div className='row'>
-          { this.state.showAdd ? <NewParkForm /> : null }
+          { this.state.showAdd ? <NewParkForm pushPark={this.pushPark} /> : null }
         </div>
         <div className='row'>
           {this.state.parks.length !== 0 ? <Park parks={this.state.parks} /> : "Loading..."}
