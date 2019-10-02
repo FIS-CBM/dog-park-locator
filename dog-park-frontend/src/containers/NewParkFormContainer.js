@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-export default class NewParkContainer extends Component {
+export default class NewParkFormContainer extends Component {
   constructor() {
     super()
     this.state = {
