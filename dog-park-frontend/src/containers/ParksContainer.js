@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Park from '../components/Park'
+import Parks from '../components/Parks'
 import NewParkForm from './NewParkContainer'
 
 export default class ParksContainer extends Component {
@@ -65,7 +65,7 @@ export default class ParksContainer extends Component {
           { this.state.showAdd ? <NewParkForm pushPark={this.pushPark} /> : null }
         </div>
         <div className='row'>
-          {this.state.parks.length !== 0 ? <Park parks={this.state.parks} /> : "Loading..."}
+          {this.state.parks.length !== 0 ? <Parks parks={this.state.parks} /> : "Loading..."}
         </div>
       </div>
     )
