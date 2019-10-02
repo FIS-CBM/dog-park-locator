@@ -7,7 +7,9 @@ export default class ParksContainer extends Component {
     super()
     this.state = {
       parks: [],
+      filteredParks: [],
       showAdd: false,
+      showFilter: false
     }
   }
 
@@ -26,10 +28,17 @@ export default class ParksContainer extends Component {
 
   handleShowAdd = e => {
     e.preventDefault()
-    if (e.target.firstChild.textContent === 'Done') this.fetchParks()
     this.setState({
       ...this.state,
       showAdd : !this.state.showAdd
+    })
+  }
+
+  handleShowFilter = e => {
+    e.preventDefault()
+    this.setState({
+      ...this.state,
+      showFilter: !this.state.showFilter
     })
   }
 
@@ -51,22 +60,21 @@ export default class ParksContainer extends Component {
     })
   }
 
+  filterParks = filtered => {
+
+  }
+
   render(){
     return(
-      <div className='parks-container'>
+      <div>
         <br />
-        <div className='row'>
-          <div className='col-xs-4 col-sm-2'>
-            <button onClick={e => this.handleShowAdd(e)}>{ this.state.showAdd ? 'Done' : 'Add Park' }</button>
-          </div>
-        </div>
+        <button onClick={e => this.handleShowFilter(e)}>Filter</button>
         <br />
-        <div className='row'>
-          { this.state.showAdd ? <NewParkForm pushPark={this.pushPark} /> : null }
-        </div>
-        <div className='row'>
-          {this.state.parks.length !== 0 ? <Parks parks={this.state.parks} /> : "Loading..."}
-        </div>
+        { this.state.showFilter ? <ParkFilter filterParks={this.filterParks} allParks={this.state.parks} /> : null }
+        { this.state.parks.length === 0 ? "Loading..." : null }
+        { this.state.filteredParks.length === 0 ? <Parks parks={this.state.parks} /> : <Parks parks={this.state.filteredParks} /> }
+        <button onClick={e => this.handleShowAdd(e)}>{ this.state.showAdd ? 'Done' : 'Add Park' }</button>
+        { this.state.showAdd ? <NewParkForm pushPark={this.pushPark} /> : null }
       </div>
     )
   }
