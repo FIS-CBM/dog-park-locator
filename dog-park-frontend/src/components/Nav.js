@@ -11,9 +11,9 @@ export default class Nav extends Component {
 
   render(){
     return(
-      <div className='row nav'> {/* currently set up as a header. can easily be changed. reach out to @someotherkyle if you have issues not going to work too hard on formatting this until a decision is made*/}
-        <NavLink to='/' activeClassName='active' className='col-xs-12 col-sm-3'>{this.state.auth ? 'Log Out' : 'Log In'}</NavLink>
-        <NavLink to='/parks' activeClassName='active' className='col-xs-12 col-sm-3'>Parks</NavLink>
+      <div className='nav'> {/* currently set up as a header. can easily be changed. reach out to @someotherkyle if you have issues not going to work too hard on formatting this until a decision is made*/}
+        <NavLink to='/'>{this.state.auth ? 'Log Out' : 'Log In'}</NavLink>
+        <NavLink to='/parks'>Parks</NavLink>
       </div>
     )
   }

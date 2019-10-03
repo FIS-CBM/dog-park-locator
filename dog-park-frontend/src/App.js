@@ -10,7 +10,7 @@ import ParksContainer from './containers/ParksContainer'
 function App() {
   return (
     <Router>
-      <div className="App container-fluid">
+      <div className="App">
         <Nav />
         <Route exact path='/' component={Landing} />
         <Route exact path='/parks' component={ParksContainer} />
