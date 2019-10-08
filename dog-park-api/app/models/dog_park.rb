@@ -6,4 +6,7 @@ class DogPark < ApplicationRecord
 
 	validates :zip_code, length: { is: 5 }
 
+	 validates :zip_code, format: { with: /\d/,
+    message: "only allows numbers" }
+
 end
