@@ -4,7 +4,7 @@ class CreateDogParks < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :city
       t.string :state
-      t.integer :zip_code
+      t.string :zip_code
       t.string :address
       t.string :website
       t.text :info
